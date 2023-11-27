@@ -1,0 +1,158 @@
+DataTypes
+----> Number <----
+var num = 123
+var num1 = 367.67
+var num2 = -8678
+var num3 = -0
+var num4 = 0
+var num5 = Infinity
+var num6 = -Infinity
+var num7  = NaN
+
+----> String <----
+var first = 'Achyuth'
+var second = "Pamisetty"
+var third = `Kumar` (backticks)
+var num = '1'
+var booleanString = 'true'
+
+----> Boolean <----
+var isValid = true
+var isInvalid = false
+
+
+----> BigInt <----
+
+var bigValue = 123456n
+var bigValue1 = BigInt(123456)
+
+bigValue1 --> Output : 123456n
+
+
+----> undefined <---
+var name 
+name ---> output : undefined because value is not assigned
+
+var xyz
+xyz ---> output : undefined because value is not assigned
+
+---> Null <---  (very helpful in LWC)
+var subject = null
+subject ---> output will be null
+
+
+Above all the DataTypes are primitive DataTypes
+
+----> Object <----
+
+----> 1. Object Lateral <------
+
+How to create an Object
+
+Below Name,Age & isAvalible are properties
+getName is the Method
+
+----> Approch 1: for Object Lateral <------
+
+var obj = {
+
+        'name': 'Achyuth',
+        'age':27,
+        'isAvailable': true,
+
+    getName:function(){
+        return 'Hello achyuth'
+    }
+}
+
+----> Approch 2: for Object Lateral(using Dot Notation) <------
+
+var obj1 = {}
+
+obj1.name = 'salesforce'
+
+obj1 ---> output : salesforce
+
+----> Approach 3: for Object Lateral (using Array Notation)  <------
+
+obj1['age'] = 27
+
+obj1   ---> Output : salesforce & 27  
+
+
+----> 2. Object Constructor (This Approach mostly used in Inheritance)  <------
+
+var obj = new Object()
+obj.name = 'sfdc'
+
+obj -- > output : sfdc 
+
+----> 3. Object.create()   <------
+----> Approach 1: Referring the Object <------
+
+var obj = {name : 'Achyuth'}
+var newObj = Object.create(obj)
+
+newObj.name -- >Output: Achyuth
+
+----> Approch 2: without referring the Object  <------
+
+var obj2 = Object.create({})
+obj2.name  ---> output: undefined
+
+
+
+----> Dot Notation vs Array Notation  <------
+
+If you are creating an object & one property has a space
+
+var obj = {
+    'full name' : 'Achyuth Pamisetty',
+    'name':'Achuyth'
+}
+
+obj.full name ---> output : undefined because you cannot access the property that contains space using dot notation
+
+obj['full name'] ---> output : Achuyth Pamisetty (use Array notation)
+
+
+----> 4. How to fetch keys of an object:   <------
+
+we use Object.keys method to fetch the keys of an Object
+
+Object.Keys(obj) --->output: full name, name
+
+
+----> 5. How to delete the property from an Object  <------
+
+delete obj.name ----> output: true & deletes the name property
+
+
+----> 6. convert obj to String  <------
+var str = JSON.stringify(obj)
+output ---> "{'full name': 'Achuyth Pamietty'}"
+
+
+----> 7. convert String into Object  <------
+
+JSON.parse(str)
+output --> 'full name':'Achyuth Pamisetty'
+
+
+
+----> Symbol <----
+
+var symbol = symbol()
+
+Ex:
+
+var foo = Symbol('baz');
+var bar = Symbol('baz');
+
+foo ---> output : Symbol(baz)
+bar -- > output : Symbol(baz)
+
+foo === bar
+output : false
+
+Even though we assign the same values but both are not equal
