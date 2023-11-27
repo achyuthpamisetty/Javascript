@@ -1,0 +1,214 @@
+typeof Operator
+
+ ----> Number <----
+
+ typeof 23
+ output : Number
+
+ typeof 3.787
+ output : Number
+
+ typeof Infinity
+ output : Number
+
+ typeof -Infinity
+ output : Number
+
+
+ typeof -0
+ output : Number
+
+ typeof -675
+ output : Number
+
+ ----> String <----
+
+ typeof ''
+ output: String
+
+ typeof ""
+ output: String
+
+ typeof "hey"
+ output: String
+
+ typeof "true"
+ output: String
+
+ ----> Boolean <----
+ typeof true
+ output: Boolean
+
+ typeof false
+ output: Boolean
+
+ ----> undefined <----
+
+ var x
+ typeof x
+ output : undefined
+
+ ----> symbol <---
+ typeof symbol()
+output: symbol
+
+
+
+-----> Important <-----
+
+typeof null
+output: object
+
+
+-----> object <-----
+
+typeof {}
+output : object
+
+
+----> tricky questions <-----
+
+------> Example 1: <------
+typeof(typeof 1)
+
+output: string
+typeof 1
+output will come as string: "number"
+
+typeof('number')
+output: string
+
+------> Example 2: <------
+typeof !!(-1)
+
+!(-1) : false
+!!(-1) : true
+typeof !!(-1):  Boolean
+
+------> Example 3: <------
+
+typeof function(){}
+output: function
+
+------> Example 4: <------
+
+typeof new Date()
+output: object (whenever the new keyword comes its an object)
+
+------> Example 5: <------
+typeof []
+output : object
+
+
+----> Type Coercion <-----
+
+----> Explicit <-----
+
+String(23)
+ouptut : "23" (Converted number into string)
+
+String(undefined)
+output: "Undefined" (Converted undefined into string)
+
+
+String(null)
+output: "null" (Converted null into string)
+
+String("23")
+output: "23" (It keeps the same)
+
+String(true)
+output: "true" (Converts Boolean into String)
+
+---- > Number <-----
+
+number(23)
+output: 23
+
+number(undefined)
+output: NaN
+
+number(null)
+output: 0
+
+number("hello")
+output: NaN
+
+number(true)
+output: 1
+
+number(false)
+output: 0
+
+number([])
+output: 0
+
+number(["33"])
+output: 33  (//It takes the first value of an array)
+
+number(["33","73"])
+output: NaN
+
+
+-----> Boolean <-----
+Boolean(2)
+output: true
+
+Boolean("2")
+output: true
+
+
+Boolean(0)
+output: false
+
+Boolean(122n)
+output: true
+
+Boolean(0n)
+output: false
+
+Boolean(null)
+output: false
+
+Boolean(NaN)
+output: false
+
+Boolean([])
+output: true
+
+Boolean(false)
+output: false
+
+
+----> Implicit Conversion <---- 
+
+"Hello"+"World"
+output: "HelloWorld"
+
+"Hello"+"world"+"12345"
+output: "Helloworld12345"
+
+100+"world"
+output: "100world"
+
+//whenever +(uniary operator) and a string either side of this operator both value becomes string
+
+-----> Example  <-----
+"world"+10
+output :"world10"
+
+-----> Example 1 <-----
+100+null+20+"world"  (//Here null value will be Zero so it adds 100 & 20)
+output: "120world"
+
+-----> Example 2 <-----
+
+100+200+undefined+"hey"   (//Number(undefined) ---> NaN)
+output: "NaNhey"
+
+-----> Example 3 <-----
+var x ={}
+
+x+"hey"
+
+output: "[object object] hey"
