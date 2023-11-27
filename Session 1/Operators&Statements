@@ -1,0 +1,224 @@
+//Equality Comparison:
+//Abstract Equality Comparison
+
+100 == "100"   //check only the values
+output: true  //Not recommended Approach
+
+//Strict Equality Comparison
+100 === '100' //check the value as well as datatype
+output: false
+
+//99% === works fine
+//only few scenarios it fails
+
+-0 === 0
+output : true
+
+NaN === NaN
+Output: false
+
+//To solve the abpve scenarios JS introduced Object.is()
+
+object.is(-0,0)
+output: false
+
+object.is(NaN,NaN)
+output: true
+
+//Operators
+
+------> Arithmetic Operators <------
++, -, *, /, %(Modulous), ++(Incerement), --(Decrement)
+
+---->Example 1<------
+var x = 100
+x++ (Post Incerment)
+output : 101
+
+---->Example 2<------
+
+var y =20
+++y (Pre Incerment)
+output: 21
+
+--y 
+output :20
+
+------> Comparison Operators <------
+
+==, ===,  != , > , < , >=, <=
+---->Example 1<------
+
+2>3
+output: true
+
+3<2
+output: false
+
+10!==10
+output : false
+
+10 !== '10'   //comparing the datatype
+output: true
+
+10 != '10'   //comapring the value
+output : false
+
+---->Example 2<------
+
+"hello" >"Hello"
+output : true
+
+//takes the value of first letter from theasciicode.com.ar
+
+"h".charCodeAt()
+output: 104
+
+------> Logical Operators <------
+
+&& , ||, !
+
+---->Example 1<------
+
+var x =[] || "hey"
+
+output: []
+Boolean([])
+true
+
+---->Example 2<------
+var x = 0 || "hey"
+Boolean(0)
+false
+x
+output: "hey"
+
+OR || ----> Either of them is true returns true
+
+
+---->Example 3<------
+
+var x = 0 && "hey"
+x
+output: 0
+
+---->Example 4<------
+!0
+Output: true
+Solution: Boolean(!0)
+true
+
+!"hey"
+output: false
+
+------> Assignment Operators <------
+
+=, +=, -=, *=, /=, %=
+
+---->Example 1<------
+
+var x= 10
+x+=20   //x = x+20
+x
+output : 30
+
+
+------> Ternary Operators <------
+
+var name = "Achyuth"
+var isAvailable = name === 'Achyuth'? 'Present':'Absent'
+
+isAvailable
+output: present
+
+var isAvailable = name === 'Kumar'? 'Present':'Absent'
+isAvailable
+output: Absent
+
+
+------> Conditional Statements <------
+
+if, else, else if, switch
+
+---->Example 1<------
+var value = 0
+if(value){
+    console.log('success')
+}
+
+output: undefined //because 0 is a falsy value
+
+var value = 10
+if(value){
+    console.log('success')
+}
+output: success 
+
+---->Example 2<------
+
+var name = 'Achyuth'
+if(name === 'Achyuth'){
+    console.log('success')
+}else{
+    console.log('failed')
+}
+
+output: Success
+
+---->Example 3<------
+
+var name = 'Kumar'
+if(name === 'Achyuth'){
+    console.log('success')
+}else{
+    console.log('failed')
+}
+
+output: failed
+
+---->Example 4<------
+
+var letter = "A"
+if(letter === 'A'){
+    console.log('Apple')
+}else if(letter === 'B'){
+    console.log('Banana')
+}else{
+    console.log('No Idea')
+}
+
+output: Apple
+
+
+---->Example 5<------
+
+var day = 2
+var text = null
+switch(day){
+    case 0:
+        text = "Today is Saturday";
+        break;
+    case 1:
+        text = 'Today is Sunday';
+        break;
+    default:
+        text = 'Looking forward to the weekend'
+}
+
+output: Looking forward to the weekend
+
+---->Example 6<------
+
+var day = 1
+var text = null
+switch(day){
+    case 0:
+        text = "Today is Saturday";
+        break;
+    case 1:
+        text = 'Today is Sunday';
+        break;
+    default:
+        text = 'Looking forward to the weekend'
+}
+output: Today is Sunday
