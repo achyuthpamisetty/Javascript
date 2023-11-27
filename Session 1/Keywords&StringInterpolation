@@ -1,0 +1,176 @@
+//Keywords
+
+{
+    //anything defined between these brackets are called block scope
+}
+
+//Var
+-----> Example 1 <-----
+if(true){
+    var name ='Achyuth'
+}
+console.log(name)
+
+output: hello //because var is a global scope
+
+-----> Example 2 <-----
+
+//Let
+
+if(true){
+    let name ='Achyuth'
+}
+console.log(name)
+output: error //because let is in block scope & you cannot access the variable outside of the scope
+
+-----> Example 3 <-----
+
+var x = 10
+x
+output : 10
+var x = 20
+x
+output: 20
+
+-----> Example 4 <-----
+let x = 10
+let x = 20
+console.log(x)
+
+output: You cannot redeclare the variable again and again using let
+
+//Const
+//const also block scope
+
+-----> Example 1 <-----
+const name = 'Achyuth'
+const name = 'Hello'
+
+output: You cannot redeclare the variable again and again using const
+
+-----> Example 2 <-----
+const useretail = {
+
+    name : 'Achyuth'
+}
+
+userdetail.name = 'Salesforce'
+
+output: salesforce //because we are upadating the properties
+
+
+//String Interpolation
+-----> Example 1 <-----
+
+"hello" + " " +"World"
+output: "hello world"
+
+-----> Example 2 <-----
+
+var username = 'Achyuth'
+
+`hello ${username}`
+
+output: "hello Achyuth"
+
+-----> Example 3 <-----
+`hello 
+${username}`
+
+output: "hello Achyuth"  //2nd word comes in next line
+
+-----> Example 3 <-----
+
+`hello ${2+2}`
+
+ouptut: "hello 4"
+
+-----> Example 4 <-----
+
+`hello ${new Date().toDateString()}`
+
+output: Mon Nov 27 2023
+
+//String Methods
+
+-----> Example 1 <-----
+
+var str = 'Hello Everyone'
+str.toLowerCase()
+output: 'hello everyone'
+
+-----> Example 2 <-----
+
+str.toUpperCase()
+output: 'HELLO EVERYONE'
+
+-----> Example 3 <-----
+
+var str = "  Hello Salesforce Guys  "
+str.trim()
+output: "Hello Salesforce Guys"  //removes the spaces from both the places
+
+str.trimStart()
+output: "Hello Salesforce Guys  " //removes the spaces from starting
+
+str.trimEnd()
+output: "  Hello Salesforce Guys"  //removes the spaces from end
+
+//substring(start,end)
+
+var str = 'Hello Everyone'
+str.substring(6)    //index starts from 0
+
+ouput: "Everyone"
+
+
+str.substring(6,12)
+output: "Everyo"   //it won't take the 12th letter but considers the 6th letter
+
+
+//substr(start,length)
+
+var str = 'Hello World!';
+str.substr(1,4)  //starts from index 1 & take 4 letters
+ouptut: ello
+
+
+//split --> converts the string into array
+
+-----> Example 1 <-----
+
+var str = 'Hello';
+
+str.split("")
+output: ['H','E','L','L','O']
+
+-----> Example 2 <-----
+
+var str = 'Hello Everyone';
+str.split(" ")
+output: ['hello','Everyone']
+
+-----> Example 3 <-----
+var str = 'Hello Everyone';
+str.split("",3)   //first 3 letters
+output: ['H','E','L']
+
+
+//indexof
+var str = 'Hello world!';
+str.indexOf("world")
+
+output: 6
+
+//replace
+
+str.replace('world','salesforce')
+output: 'hello salesforce!'
+
+//includes
+str.includes('world')
+output: true
+
+str.includes('world3')
+output: false
+
