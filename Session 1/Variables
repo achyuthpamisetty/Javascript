@@ -1,0 +1,54 @@
+//In console of the chrome
+
+var -- > var is the keyword 
+var name  -- > name is the variable
+
+var name = 'Javascript'
+name
+Output --> javascript
+
+
+Javascript is case sensitive
+var Name = 'JS'
+Name 
+Outupt --> JS
+name
+Output -- > Javascript
+
+
+Javascript is loosely-typed
+In javascript the variable totally depends on the value
+
+Ex:
+var x = true
+here x becomes boolean
+
+
+var x = 10
+now x becomes Number
+
+//Variables cannot begin with Numbers, Keywords(true/false)
+
+//We can start the variable with loadish
+
+var _name ='Achyuth'
+
+//We can also start with $ (JQuery start with $)
+
+var $name = 'Pamisetty'
+
+
+//Different Types of Variables:
+
+var name = 'Achyuth'   --> String type variable
+var age = 23  --> Number Type variable
+var isAvailable = true -- > Boolean Type variable
+var nullish = null
+
+
+based on the value we can determine the datatype
+
+Comments:
+Single Line - //
+Multiline  - /* start before the code
+end after the code*/
