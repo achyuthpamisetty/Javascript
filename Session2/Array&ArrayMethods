@@ -1,0 +1,237 @@
+//Arrays
+
+//Array Literal
+var arr = []
+arr
+output: []
+
+var stringArray = ['one','two','three'];
+var numericArray = [1,2,3,4];
+var decimalArray = [1,1.1,1.2,3.4];
+var booleanArray = [true,false,true,true];
+var mixedArray = [1,'two','three',4];
+
+//Array Constructor
+var arr = new array()
+arr
+output:[]
+
+var stringArray = new array();
+stringArray[0] = 'one';
+stringArray
+output: 'one'
+
+var numericArray = new Array(3)
+//array will be created with 3 empty blocks
+
+numericArray.length
+output: 3
+
+numericArray[0] = 1;
+numericArray[1] = 2;
+numericArray[2] = 3;
+
+numericArray
+output: [1,2,3]
+
+//Dynamically Pass the value
+
+var mixedArray = new Array(1,'two','three',4);
+mixedArray
+output:[1,'two','three',4]
+
+
+//Array Methods
+var x = ['a','b','c','d']
+x.push('e')              //Add the element at the last
+x
+output: ['a','b','c','d','e']
+
+x.pop()                 //Removes the last element
+x
+output: ['a','b','c','d']
+
+x.shift()   //removes the first element from an array
+x
+output: ['b','c','d']
+
+x.unshift('a')   //adds the first element to an array
+x
+output: ['a','b','c','d']
+
+
+x.reverse()
+x
+output: ['d','c','b','a']
+
+x.splice(1,1)    //starts with index 1 & remove one element
+x
+output: ['a','c','d']
+
+//from the above
+x.splice(1,0,'hurray')    //because we have already removed the element from index 1 so there is no value to remove it
+x
+output: ['a','hurray','c','d']
+
+
+var x = ['a','b','c','d']
+x.indexOf('c')
+output: 2
+
+x.indexOf('g')
+output : -1 //g is not available
+
+
+var x = ['d','a','b','c','d']
+x.lastIndexOf('d')
+ouptut: 4
+
+
+x.join('')    //joins an array into string
+ouptut: 'dabcd'
+
+x.join('-')
+output: 'd-a-b-c-d'
+
+//slice - always returns new array
+
+var arr = ['1','2','3','4','5'];
+var newArr = arr.slice(1,3)    //starts with index 1 & doesn't consider the index 3
+output: ['2','3']
+
+var x = ['a','b','c','d']
+var y = [1,2,3,4]
+
+var z = x.concat(y)
+z
+ouptut: ['a','b','c','d',1,2,3,4]
+
+------> Important Array Methods <-------
+
+//Map Method
+
+var x = [
+    {name: 'a',age:10},
+    {name: 'b',age:20},
+    {name: 'c',age:30},
+    {name: 'd',age:40},
+]                                                               //index starts from 0,1,2... //actualArr refers to x
+
+x.map(function(currItem, index, actualArr){                      //callback is a function pass as the argument to another function
+
+    console.log('currItem',currItem)
+    console.log('index',index)
+    console.log('actualArr',actualArr)
+
+    return{"key": currItem.name, "value":currItem.age}
+
+})  
+
+output:
+currItem: {name: 'a', age: 10}    //first element
+index: 0
+actualArr : actualCopy of x
+
+//repeats for the rest of the elements
+
+
+//EveryMethod
+
+var x = [
+    {name: 'a',age:10},
+    {name: 'b',age:20},
+    {name: 'c',age:30},
+    {name: 'd',age:40},
+] 
+
+x.every(function(currItem, index, actualArr){
+    return currItem.age>8                           //Every method checks each element in the array
+})
+
+output: true //the currItem.age >8
+
+x.every(function(currItem, index, actualArr){
+    return currItem.age>50                           //Every method checks each element in the array
+})
+
+output: false
+
+//Filter Method
+x.filter(function(currItem, index, actualArr){
+    return currItem.age>=20                     //filters all the elemets in the array  & retruns the new array                         
+})
+
+output: name:'b', age:20
+name:'c',age:30
+name:'d', age:40
+
+//Some Method
+x.some(function(currItem, index, actualArr){
+    return currItem.age>20                      //some: if any of the element satisfy the condition returns true
+})
+
+outpur: true
+
+//Sort Method
+x.sort(function(a,b){
+    return a.age-b.age
+})
+
+output: sorts the age in ascending order from 10,20,30,40
+
+x.sort(function(a,b){
+    return b.age-a.age
+})
+
+output: sorts the age in descending order from 40,30,20,10
+
+
+//Sorting for the String
+x.sort(function(a,b){
+    return (a.name > b.name) ? 1: (a.name<b.name) ?1- : 0
+
+})
+output: sorts in ascending order a, b, c, d
+
+x.sort(function(a,b){
+    return (a.name < b.name) ? 1: (a.name > b.name) ?1- : 0
+
+})
+output: sorts in descending order d,c,b,a
+
+//Reduce Method
+
+var numbers = [10,30,50]
+
+numbers.reduce(function(total, currItem,index,actualArr){    //total --> initial value or previous value return from the function
+    console.log('total',total)                                                      //you can give any name instead of total
+    console.log('current value is',currItem)                //if i initializa with 0, total starts with 0
+    return total+currItem
+},0)                 
+
+output:
+total : 0
+current Item is: 10
+total : 10
+current Item is: 30
+total : 40
+current Item is: 50
+90
+
+//ReduceRight Method  -- >starts from right to left
+var numbers = [10,30,50]
+var sum = numbers.reduceRight(function(total, currItem,index,actualArr){
+    console.log('total',total)
+    console.log('current value is',currItem)
+    return total+currItem
+},0)
+
+output:
+total : 0
+current Item is: 50
+total : 50
+current Item is: 30
+total : 80
+current Item is: 10
+90
+
