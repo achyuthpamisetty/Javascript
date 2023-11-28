@@ -1,0 +1,127 @@
+//Strict Mode
+"use strict"
+
+const { default: CompletedDateTime } = require("@salesforce/schema/Task.CompletedDateTime");
+
+var x = 3.14;
+delete x;
+output: throws an error because of strict mode
+
+"use strict"
+function x(p1,p1) {};    //duplicate parameters not allowed
+output: throws an error because of strict mode
+
+
+//Practise 1:
+var variable = 10;
+function test(){
+    console.log(variable);
+    var variable = 20;
+    console.log(variable);
+}
+test()
+
+//Practise 2:
+var variable = 10;
+function test(){
+    console.log(variable);
+    variable = 20;
+    console.log(variable);
+}
+test()
+
+
+//this keyword in JS
+//1. In a method this refers to the owner of the object
+//Whenever you have an object & you are using this inside the method
+
+var person ={
+    firstName: 'Achyuth',
+    lastName: 'Pamisetty',
+    id: 1,
+    getFullName : function(){
+        console.log(this)                           //here person is the owner of the getFullName method
+        return this.firstName+" "+this.lastName;
+    }
+};
+
+person.getFullName()
+output: firstName: 'Achyuth',lastName: 'Pamisetty',id: 1
+
+
+//2. this alone is global
+this
+ouptut: points directly to the window
+
+this === window
+output: true
+
+//3. this in a function represent the object that own the function
+
+function myFunction(){
+    console.log(this);
+}
+
+myFunction()
+output: this points directly to the window object
+
+//4. In an event , this refers to the element that received from the event
+
+HTML:
+<button onclick='abc(this)'>
+    click
+</button>
+
+In JS:
+function abc(e){
+    console.log(e)
+}
+
+if you click on the button in the browser , in console you will see the HTML CompletedDateTime
+
+//5.Explicit Function Binding
+
+var person ={
+    firstName: 'Achyuth',
+    lastName: 'Pamisetty',
+    id: 1,
+    getFullName : function(){
+        console.log(this)                           
+        return this.firstName+" "+this.lastName;
+    }
+};
+
+var person1 = {
+    firstName: 'Salesforce',
+    lastName: 'Developer',
+}
+
+person.getFullName.call(person1)
+
+output: firstName: 'Salesforce' , lastName : 'Developer'
+
+
+//Example:
+var person ={
+    firstName: 'Achyuth',
+    lastName: 'Pamisetty',
+    id: 1,
+    getFullName : function(a,b){
+        console.log(this)                           
+        return this.firstName+" "+this.lastName+" "+a+" "+b;
+    }
+};
+
+var person1 = {
+    firstName: 'Salesforce',
+    lastName: 'Developer',
+}
+
+person.getFullName.call(person1,'A','B');    //In call it should be in string format
+output: salesforce developer A B
+
+person.getFullName.apply(person1,['A','B']);   //apply pass the arguments in array form
+output: salesforce developer A B
+
+
+
