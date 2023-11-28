@@ -166,3 +166,14 @@ var obj = {
 obj.counter()
 output: my id is 42
 
+//Where not to use Arrow function
+var obj = {
+    id:42,
+    counter:()=>{
+        console.log(this)
+        console.log(this.id)
+    }
+}
+
+obj.counter()
+output: Arrow function points to parent function as parent function is not there its pointing to window
