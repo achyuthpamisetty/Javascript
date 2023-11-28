@@ -1,0 +1,167 @@
+//Function in JS
+
+//function declaration
+function func(a,b){
+    return a * b;
+}
+func(2,3)
+
+output: 6
+
+//Function Expression
+var x = function(a,b) {return a * b};
+x(2,3)
+
+output: 6
+
+//function constructor
+var func = new Function('a','b','return a*b')
+func(4,3)
+
+output: 12
+
+//IIFEs - Immediately Invoke Function Expression
+
+function abc(a,c){
+    return a*c
+}
+
+abc(2,4)
+output: 8
+//To convert normal function into IIFEs
+
+//first we write anonymous function     //helps us from scope pollution
+function(a,b){
+return a*b
+}
+
+& wrap the function with '()'
+(function(a,b){
+    return a*b
+    })(2,3)
+output: 6
+
+
+//Arrow Function
+function abc(){
+    return 42
+}
+convert the above into Arrow Function
+//replace the '{}'brackets with arrows'=>'
+
+var abc = () => 42
+abc()
+output: 42
+
+//Examples:
+function abc(x){
+    return x
+}
+convert the above into Arrow Function
+var abc = (x) => x
+
+or 
+
+var abc = x => x
+
+abc(3)
+output: 3
+
+//Examples:
+
+function abc(x,y){
+    return x+y
+}
+convert the above into Arrow Function
+const abc = (x,y) => x+y
+abc(2,3)
+output: 5
+
+//Examples:
+function abc(x,y){
+    let z = 10
+    return x+y+10
+}
+convert the above into Arrow Function
+var abc = (x,y) => {
+    let z =10
+    return x+y+10
+}
+
+abc(2,3)
+output: 15
+
+//Examples:
+function abc(){
+    return {'name':'Achyuth'}
+}
+convert the above into Arrow Function
+
+var abc() = () => ({'name':'Achyuth'})
+abc()
+output: Achyuth
+
+//there was an issue before the arrow function
+var obj = {
+    id: 42,
+    counter: function counter(){
+        console.log(this)
+        function abc(){
+            console.log('My Id is',this.id)         //this loose its scope inside a function
+        }
+        abc()
+    }
+
+}
+obj.counter()
+output: my id is undefined
+
+//to solve the above problem
+
+var obj = {
+    id: 42,
+    counter: function counter(){
+        console.log(this)
+        var that = this       //Approach 1
+        function abc(){
+            console.log('My Id is',that.id)         
+        }
+        abc()
+    }
+
+}
+obj.counter()
+output: my id is 42
+
+
+var obj = {
+    id: 42,
+    counter: function counter(){
+        console.log(this)
+        function abc(){
+            console.log('My Id is',this.id)         
+        }
+        abc.bind(this)()     //Approach 2 - Recommended
+    }
+
+}
+
+obj.counter()
+output: my id is 42
+
+//To solve the same issue using the Arrow Function
+
+var obj = {
+    id: 42,
+    counter: function counter(){
+        console.log(this)
+        var abc = () =>{                        //Arrow function takes this of the parent function
+            console.log('My Id is',this.id)         
+        }
+        abc()     
+    }
+
+}
+
+obj.counter()
+output: my id is 42
