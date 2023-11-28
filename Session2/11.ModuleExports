@@ -1,0 +1,25 @@
+//Modules export in JS
+
+//Named Export - when we have too many to export
+
+export const programmingList = ['Svelte','React','Vue','Angular']
+
+export const helloSvelteHandler = () =>{
+
+    return 'Hello Svelte'
+}
+
+export const bookDetails = {
+    name: 'Salesforce'
+    author: 'Achyuth Pamisetty'
+}
+
+//programmingList --> function name
+
+//If you want to import the above file we use import keyword
+import {programmingList,helloSvelteHandler,bookDetails}  from './filename.js'
+
+
+//but if there are 100 properties to import then we use alias importing
+
+import * as UTILS from './filename.js' 
