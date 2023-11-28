@@ -1,0 +1,113 @@
+//Closures - Important for Interview
+
+function outer(){
+    var counter =0
+    return function inner(){       //Inner function hold the scope of outer function
+        counter +=1
+        return counter
+    }
+}
+
+var counter = outer()
+counter()
+output:
+counter()
+1
+counter()
+2
+counter()
+3
+
+
+//Object Destructuring
+var employee = {
+    firstName: 'Achyuth',
+    lastName: 'Pamisetty',
+    position: 'Developer',
+    yearHired: 2023
+};
+//if you want the same name as object property
+var{firstName,lastName,position} = employee      //---> Approach 1 for Object Destructuring
+
+firstname
+output: Achyuth
+
+//---> Approach 2 for Object Destructuring
+
+var{firstName,lastName,position, z='dummy'} = employee     //if z is not avaialble in employee obj then we can assign directly
+z
+output: dummy
+
+
+//Array Destructuring
+var arr = ['A','B','C']
+
+var[first,second,third,fourth='D'] = arr    //Never give a number in the array destructuring as number is not allowed in variable
+
+first
+output: A
+
+//Object.freeze
+const person = {
+    name: 'Achyuth'
+};
+
+person.name='Kumar'
+person
+output: 'kumar
+
+//I want to create that objects are also not allowed to update'
+
+Object.freeze(person);
+person.name='pamisetty'
+
+person
+output: 'kumar'   //it doesn't update as we are using freeze & even you can't delete
+
+delete person.name
+output: false
+
+
+//Date Object
+new Date()
+ouput: shows today date with time
+
+//If you want to create your own data here is the syntax
+
+//new Date(year,month,day,hours,minutes,seconds,milliseconds)
+
+//new Date(milliseconds)
+new Date(86400000);             //JS starts the date from 1970 & if we pass he milliseconds of one day it shows jan 2 1970
+output: Fri Jan 02 1970 10:00:00
+
+
+//new Date(date string)
+var d = new Date('october 13,2014 11:13:00');
+
+
+-----> Examples <------
+
+var d = new Date(1950,11,24)
+d
+output: shows the date
+
+d.getFullYear()
+output: 1950
+
+d.getYear()
+output: 50
+
+d.getMonth()
+output : 11    //Month start from zero to 11
+
+d.getDate()
+output: 24
+
+d.getDay()    //day starts from 0 to 6 where 0 is sunday
+output: 0
+
+
+d.setYear('2023')
+d
+output: changed the year from 1950 to 2023
+
