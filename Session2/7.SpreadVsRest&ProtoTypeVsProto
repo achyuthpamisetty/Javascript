@@ -1,0 +1,188 @@
+//Spread vs Rest Operator
+//1.  Create a new copy
+var x =[1,2,3,4,5]
+var y =[...x]
+
+y
+output: [1,2,3,4,5]
+
+x.push(6)
+x
+output: [1,2,3,4,5,6]
+
+y                   //still remains the same
+output: [1,2,3,4,5]
+
+//Concatination using Spread Operator
+var x = [1,2,3,4,5]
+var y = [...x,'6']
+y
+output: [1,2,3,4,5,'6']
+
+
+//Pass elements of an array to a function as seperate arguments
+
+function add(a,b,c){
+    return a+b+c;
+}
+
+var args = [1,2,3,4,5];
+add(args)
+output:
+'1,2,3,4,5undefined'
+
+add(...args)
+output: 6   // 1+2+3 as a=1, b=2, c=3
+
+
+//convert string into an array
+[...'Achyuth']
+output: ['A','c','h','y','u','t','h']
+
+//Rest Operator
+function add(...args){
+    console.log(args)
+}
+
+add(1)
+output: [1]
+
+add(1,2)
+output: [1,2]   //--> converts to an array
+
+add(1,2,3,4,5)
+ouptut: [1,2,3,4,5]   //--> converts to an array
+
+//Example
+
+function xyz(x,y, ...z){
+    console.log(x, ' ',y)
+    console.log(z)
+}
+
+xyz('hey', 'hello','wassup','goodmorning','hi','howdy')
+output:
+x maps to hey
+y maps to hello
+rest all maps to z as an array ['wassup','goodmorning','hi','howdy']
+
+
+//Object Prototype & Prototype Chain
+
+//protoype & __proto__
+var o = object.create(null)
+o
+output: No Properties
+
+//Example 1
+var o = {id:42, name:'Achyuth'}
+o
+ouptut: id:42, name:'Achyuth'
+& you will see in the console __proto__:object & expand this f constructor is the Object
+
+//Wen you create an object using object literal, it creates an object using object method only
+// & that object method is attached to an another object called __proto__
+
+//Example 2
+
+var a=['Achyuth']
+a
+output: Achyuth 
+//you will see in the console __proto__:Array & expand this f constructor is the Array & 
+//array constructor has another __proto__ pointing to an object & this also created using an object thats why we called Array is an object
+
+
+//Example 3
+
+function Entity(Id,name){
+    this.id = id;
+    this.name = name;
+
+}
+console.dir(Entity)
+
+output:
+function again have __proto__ & that __proto__ has another __proto__ whihc is an object
+
+
+//Benefit of this prototype property
+//----> Prototype is a property of a function constructor
+// -----> __proto__ is a property of a instance created from the constructor
+//__proto__ is always there when you see an object
+//Prototype is always there when you see a function constructor
+
+
+//Example 1:
+
+var user1 = {
+    firstName:'Achyuth',
+    lastName:'Pamisetty',
+    age:27,
+    grade: 'A',
+    getFullName.function(){
+        return this.firstName+' '+this.lastName
+    }
+
+}
+
+var user2 = {
+    firstName:'John',
+    lastName:'Doe',
+    age:25,
+    grade: 'b',
+    getFullName.function(){
+        return this.firstName+' '+this.lastName
+    }
+
+}
+
+//if you want to create 100 users, it will be difficult process
+//to solve the above problem its better to create a prototype/blueprint that helps to create the number of users
+
+var person = function(firstName,lastName,age,role){
+    this.firstName = firstName
+    this.lastName = lastName
+    this.age = age
+    this.role = role
+    this.getFullName = function(){
+        return this.firstName+" "+this.lastName
+    }
+}
+
+//above the code works as a blueprint
+//now create an instance
+
+var user1 = new person('Achyuth','Pamisetty',27,'Developer')
+user1
+output: all the details will be shown
+
+var user2 = new person('John','Doe',23,'Developer')
+user2
+output: all the details will be shown
+
+//but we are repeating the same methods for the user 1 & user 2 & it will impact the performance if we create 100 users
+//in order to avoid the above case
+
+var person = function(firstName,lastName,age,role){
+    this.firstName = firstName
+    this.lastName = lastName
+    this.age = age
+    this.role = role
+}
+
+Person.prototype.getFullName = function(){
+    return this.firstName+" "+this.lastName
+}
+
+var user1 = new person('Achyuth','Pamisetty',27,'Developer')
+user1
+output: all the details will be shown
+//Now it will not show the method but if you go to __proto__ you will see the method name
+
+user1.getFullName
+output: 'Achyuth Pamisetty'
+
+//checks the object & then checks the prototype & then checks the __proto__ & last go to null  ----> chaining
+
+
+
