@@ -1,0 +1,97 @@
+//Looping
+const alphabets=[
+    {name:'A'},
+    {name:'B'},
+    {name:'C'},
+    {name:'D'}
+]
+
+//for loop
+for(let i =0 ; i<alphabets.length; i++){
+    console.log('Alphabet is:'+alphabets[i].name)
+}
+
+output:
+Alphabet is A
+Alphabet is B
+Alphabet is C
+Alphabet is D
+
+//for each
+alphabets.forEach(function(currItem, index, actualArr){
+    console.log('Alphabet is',currItem.name)
+})
+output:
+Alphabet is A
+Alphabet is B
+Alphabet is C
+Alphabet is D
+
+//there is condition where we have to use for loop over for each
+
+for(let i =0 ; i<alphabets.length; i++){
+    console.log('Alphabet is:'+alphabets[i].name)
+    if(alphabets[i].name === 'A'){                          //this is not possible in for each
+        break;
+    }
+}
+output:
+Alphabet is A
+
+
+// for of loop
+for(let alphabet of alphabets){             //each element of alphabets comes to alphabet
+    console.log('Alphabet is',alphabet.name)
+}
+output:
+Alphabet is A
+Alphabet is B
+Alphabet is C
+Alphabet is D
+
+
+for(let alphabet of alphabets){             
+    console.log('Alphabet is',alphabet.name)
+    if(alphabets[i].name === 'A'){                  //for of loop gives the freedom to break the loop as well        
+        break;
+    }
+}
+
+//for in loop  --> works on object
+let oldcar = {
+    make: 'toyota',
+    model: 'innova',
+    year: '2023'
+};
+
+for(let key in oldcar){
+    console.log(`${key} ---> ${oldcar[key]}`);    //oldcar[key] ---> pass the key to the object gives us the value
+}
+output:
+make ---> toyota    //make : key & toyota: value
+model ---> innova
+year ---> 2023
+
+//while loop
+
+var a = 0
+while(a<10){
+    console.log("num",a)
+    a++;
+}
+
+output:
+num 0
+.
+.
+num 9
+
+//do while loop  --> when the iterations are not known
+//for loop ---> when the iterations are known
+var numb
+do{
+let input = prompt('Please enter a number between 1 and 10')  //prompt --> popup shows on the screen
+numb = parseInt(input)                                          //number is in string format so using parseInt to convert into number
+}
+while(numb<10)
+
