@@ -1,0 +1,97 @@
+//Scope
+Window is the root scope
+Window is the Object that is the root of our browser
+When there is no scope it automatically attaches to the window
+In Node.JS global is the root
+Ex:
+
+var dummy = "dummy"
+here dummy variable scope automatically attached to the window
+
+window.dummy
+output: "dummy"
+
+//Local Scope or block scope
+function logcolor(){
+    let color = 'blue'
+    console.log(color)
+}
+logcolor()
+output: blue
+color  ---> print outside the scope throws an error
+
+
+Ex:2
+if(true){
+    let color = 'orange'
+    console.log(color)   //this returns the output
+}
+console.log(color) //this throws an error because out of the scope
+output: orange
+
+
+//Global Scope
+var color = 'yellow'
+function returnskycolor(){
+    return color;
+}
+returnskycolor()
+output: yellow
+
+//scope pollution : when we have too many global variables that exist in the global namespace or when we re-use variables across different scopes
+let num = 50;
+function logNum(){
+    num = 100
+    console.log(num)
+}
+logNum()
+console.log(num)
+
+output:
+100
+100
+
+//Hoisting
+accessing the variable before the declaration
+
+console.log(hoist)
+var hoist = 'hello'
+
+output: undefined //but doesn't throw error
+but Internally what JS does is
+
+var hoist
+console.log(hoist)   //that's why it shoes undefined because no value assigned
+hoist = 'hello'
+
+
+//Hoist Function
+function hoistFun(){
+    console.log(message);
+    var message = 'Hello Hositing'
+}
+
+hoistFun()
+output: undefined
+but Internally what JS does is
+function hoistFun(){
+    var message         //it hoists the variable to the top of the function
+    console.log(message);
+    var message = 'Hello Hositing'
+}
+
+//Can't Hoist the Function Expression
+s()                                             //calling the function before assigning to a variable
+var s = function(){                             //function is assigned to a variable                        
+    console.log('Definition not hoisted!');
+};
+
+output: throws an error
+
+//Function Definition always hoist
+s()                                            
+function s(){                             
+    console.log('Definition not hoisted!');
+};
+
+output: Definition not hoisted!
