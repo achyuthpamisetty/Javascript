@@ -165,3 +165,4 @@ var obj = {
 
 obj.counter()
 output: my id is 42
+
