@@ -1,0 +1,32 @@
+//JavaScript Decorators
+class Greet{
+    @readonly
+    greeting(){
+        return 'hello'
+    }
+}
+
+var greet = new Greet()
+console.log('1',greet.greeting())
+
+output: In console you will see 'hello'
+
+
+function readonly(target,name, descriptor){
+    descriptor.writable = false
+    return descriptor
+}
+
+greet.greeting = () => "hurray"
+console.log('2',greet.greeting())
+
+output: 1 hello
+2 hello
+eventhough we assigned another value it is not assigned because of readonly
+
+if you remove the readonly then output will be
+1 hello
+2 hurray
+//name - name of the method --> greeting()
+//target -- whole constructor method
+//descriptor  -- property or value
