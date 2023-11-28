@@ -1,0 +1,55 @@
+//Class and Class Inheritance
+
+class Animal{
+    constructor(name,age){
+        console.log(name+ 'is an animal and was created')
+        this.name = name
+        this.age = age
+
+    }
+    eats(){
+        console.log(this.name+ 'is eating')
+    }
+}
+
+var animal = new animal('animal',2)
+animal
+output: all details will be shown up which has property and method
+animal.eats()
+output: animal is eating
+
+
+//for inheritance
+class Dog{
+    constructor(breed){
+        this.breed = breed;
+    }
+    logBreed(){
+        console.log(this.breed)
+    }
+}
+var Dog = new Dog('bulldog')
+Dog
+output: details will be shown up which has property & method
+
+//Now two classes available Animal & Dog
+//We want to inherit the properties from Animal to Dog for that we use keyword called extends
+
+class Dog extends Animal{
+    constructor(name,age,breed){
+        super(name,age)                 //super constructor --> the constructor of the parent ---> Animal constructor
+    this.breed =breed
+    }
+    logBreed(){
+        console.log(this.name +'is a'+ this.breed)
+    }
+}
+
+
+var dog = new dog('dog1',4,'bulldog')
+dog
+output: name & age are inherited from the Animal class
+
+dog.eats()
+dog is eating
+
