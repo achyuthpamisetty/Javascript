@@ -1,0 +1,40 @@
+<!-- Manipulating Elements -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div id='hello'> Hello Everyone </div>
+        <div class='myClass'> Hello Guys </div>
+        <div class ='myClass'> Hello All </div>
+
+        <script>
+            let hello = document.querySelector('#hello').innerText = 'Hurray'
+            console.log(hello)
+  
+        </script>
+    </body>
+</html>
+
+<!-- output:hello  will be shown -->
+<!-- if you want to see the output as Hello Everyone add innerText -->
+<!-- if you want change the Hello Everyone to hurray just add like above and output will be shown as hurray -->
+<!-- innerHTML will help you add the HTML in between the Elements -->
+
+<script>
+    let hello = document.querySelector('#hello').innerHTML = '<div> Hey Hurray </div>'
+    console.log(hello)
+
+</script>
+
+<!-- output: <div> Hey Hurray </div> will be shown on the console-->
+but if you do the same as above using innerText
+
+<script>
+    let hello = document.querySelector('#hello').innerText = '<div> Hey Hurray </div>'
+    console.log(hello)
+
+</script>
+<!-- output: <div> Hey Hurray </div> will be shown on the browser-->
