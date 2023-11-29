@@ -1,0 +1,91 @@
+<!-- Debugging and Error Handling -->
+
+<!-- try,catch and finally -->
+<!DOCTYPE html>
+<html>
+    <title> Javascript Session 4</title>
+    <body>
+        <h1> Debugging and Error Handling</h1>
+    </body>
+
+    <script>
+        try{
+            //
+        } catch(err){
+            //
+        } finally{
+            //
+        }
+    </script>
+</html>
+
+<!-- Example 1 -->
+<script>
+    try{
+        console.log('Hello from try block')   //if there is no error in try block goes direclty to the finally
+    } catch(err){
+        console.log('Error from catch block')
+    } finally{
+        console.log('Hello from finally')
+    }
+</script>
+
+<!-- output: will see in the console
+Hello from try block
+Hello from finally -->
+
+
+<!-- Example 2 -->
+<script>
+    try{
+        console.log('Hello from try block')
+        let value = '{Achyuth}'  //invalid JSON     //error found so it goes to the catch block
+        JSON.parse(value)  
+        console.log('hurray') 
+    } catch(err){
+        console.log('Error from catch block')
+    } finally{
+        console.log('Hello from finally')
+    }
+</script>
+
+<!-- output: Hello from try block
+Error from catch block
+hello from finally -->
+
+
+<!-- Example 3: try...catch works synchronously-->
+<!-- Below code for Asynchronous -->
+<script>
+    try{
+        setTimeout(function(){
+            abc
+        },1000)
+    } catch(err){
+        console.log('hurray')
+    }
+    console.log('outside try and catch block')
+</script>
+
+<!-- output will be outside try and catch block but with an error 'abc not defined' but catch block is not catching
+because after 1 sec it does not go to catch block instead it directly goes to outside of try and catch block -->
+
+<!-- To solve the above issue we add another try catch inside the setTimeout-->
+<script>
+    try{
+        setTimeout(function(){
+            try{
+                abc;
+            }catch(err){
+                console.error("setTimeout exception is working");
+            }
+            abc
+        },1000)
+    } catch(err){
+        console.log('hurray')
+    }
+    console.log('outside try and catch block')
+</script>
+
+<!-- output: outside try and catch block
+setTimeout exception is working -->
