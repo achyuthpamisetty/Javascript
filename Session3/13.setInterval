@@ -1,0 +1,43 @@
+<!-- Browser Object Model -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body id="body">
+        <button onclick='start()'>Start</button>
+        <button onclick="stop()">Stop</button>
+        
+        <div id="text">Hello EveryOne</div>
+        
+
+        <script>
+            //SetInterval
+            let intervalId;  (global variable)
+            function toggleColor(){
+                let text = document.querySelector('#text')
+                text.style.color = text.style.color === 'red'? 'blue':'red'
+            }
+            function start(){
+                intervalId = setInterval(toggleColor,1000)
+            }
+
+            //cancel the setInterval
+            function stop(){
+                clearInterval(intervalId)
+            }
+
+            //call the togglecolor function after every 1 sec
+            //1. we click the start button
+            //2.we start the time interval & this timeInterval calls the callback toggleColor function every second
+            //3. this togglecolor change the color of text from blue to red & red to blue every second
+            //4. stop the interval we need a globla variable called intervalId
+            //5. call the function using stop()
+            //6. click the stop it stops the timeInterval
+
+        </script>
+    </body>
+</html>
+
