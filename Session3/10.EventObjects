@@ -1,0 +1,56 @@
+<!-- Event Objects -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body id="body">
+        <button id="btn">click me</button>
+        </div>
+        <script>
+            //Event Object
+
+            //every eventlistener listen to the event object
+            let btn = document.querySelector('#btn')
+            btn.addEventListener('click',function(event){
+                console.log(event)
+
+                //you will see many event properties in the console
+
+            })
+            //Example for event property
+            let btn = document.querySelector('#btn')
+            btn.addEventListener('click',function(event){
+                console.log(event.currentTarget)
+
+            //currentTarget will be click me ----> this will show in the console only if click on click me button in the browser
+
+            //Example for event property
+            let btn = document.querySelector('#btn')
+            btn.addEventListener('click',function(event){
+                console.log(event.Target)
+
+            //Target will be click me ----> this will show in the console only if click on click me button in the browser
+
+            //Difference between Target & currentTarget
+            //To understand that attach eventListener to the body tag
+
+            let btn = document.querySelector('#btn')
+            let body = document.querySelector('#body')
+
+            body.addEventListener('click',function(event){
+                console.log('currentTarget',event.currentTarget)
+                console.log('Target',event.Target)
+
+            })
+
+            //output: if you click on click me button
+            //currentTarget:Actual Listener that is body tag & from where I click that is the target
+            //currentTarget gives where the listener is attached
+            //Target gives where the click action happened
+        </script>
+    </body>
+</html>
+
