@@ -1,0 +1,56 @@
+<!-- Manipulating Element's Style -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div id='hello' variant = 'brand'> Hello Everyone </div>
+        <div class='myClass'> Hello Guys </div>
+        <div class ='myClass'> Hello All </div>
+
+        <script>
+            //getAttribute
+            //If you want to fetch Attribute from an element there is property called getAttribute
+            document.querySelector('#hello').style.fontsize='40px'
+            //visibility
+            document.querySelector('#hello').style.visibility = 'hidden'
+            //Hello Everyone will disapper on the browser but the space still consume
+            document.querySelector('#hello').style.visibility = 'visible'
+            //Hello Everyone wil shown on the browser
+
+            //Dsiplay
+            document.querySelector('#hello').style.display = 'none'
+            //removes the Hello Everyone & space as well
+
+            //display has two properties ---> 1.none  & 2. block - to show the element
+            //visibility has two properties ----> 1. visible & 2.hidden
+
+
+            //ClassList
+
+        </script>
+    </body>
+</html>
+
+<!-- output: fontsize increased for the Hello Everyone you can see on the screen -->
+
+
+<body>
+    <div id='hello' class = 'brand'> Hello Everyone </div>
+    <div class='myClass helloclass'> Hello Guys </div>
+    <div class ='myClass'> Hello All </div>
+
+    <script>
+        console.log(document.querySelector('#hello').classList.add('show'))
+    </script>
+</body>
+
+<!-- output: length 1 will shown in the console -->
+<!-- if you want to add the class or remove the class dynamically and there is property to the classList called add  -->
+<!-- if you want to check the 'show' go to elements you will see show is added beside the brand -->
+<!-- similarly we can remove the class as well -->
+<script>
+    console.log(document.querySelector('#hello').classList.remove('brand'))
+</script>
