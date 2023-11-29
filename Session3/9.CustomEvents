@@ -1,0 +1,51 @@
+<!-- Custom Events -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body id="body">
+        <button id="btn">click me</button>
+        <div id="msg">
+        </div>
+        <script>
+
+            //custom events
+            //1. create an event
+            let elem = document.querySelector('#btn')
+            let msg = document.querySelector('msg')
+            //showmsg - event name
+            //object properties
+            //detail is a special property to the customEvent
+            //you can attach your data to the detail property
+
+            elem.addEventListener('click',function(e) {
+                //creating of an event
+            let helloEvent = new CustomEvent('showmsg',{
+                detail:'hello msg'
+            })
+
+            //to trigger the event
+            elem.dispatchEvent(helloEvent)
+        })
+
+        elem.addEventListener('showmsg',function(e){
+            console.log(e.detail)
+            msg.innerText = e.detail
+        })
+
+        </script>
+    </body>
+</html>
+
+<!-- 1. we created a button -->
+<!-- 2. we queried the button -->
+<!-- 3. on the button element, we added eventListener click -->
+<!-- 4.whenever someone clicks the button within that eventhandler we added customEvent called showmsg -->
+<!-- 5.that showmsg passing the data 'hello msg' & In custom event there is property called detail, -->
+<!-- 6. once the custom event is ready we are triggering that event -->
+<!-- 7.As soon as I click the click me button immediatley there is another Eventhandler listening to that which is showmsg -->
+<!-- immeditely showmsg gets triggerd, it will receive event & using detail we can fetch the data & 'hello msg ' show up in browser or in the console  -->
+
