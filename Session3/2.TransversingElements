@@ -1,0 +1,64 @@
+<!-- Travsersing Elements -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div id='hello'> Hello Everyone </div>
+        <div class='myClass'> Hello Guys </div>
+        <div class ='myClass'> Hello All </div>
+
+        <script>
+            let bodyTag = document.querySelectorAll('body')
+            console.log(bodyTag)
+  
+        </script>
+    </body>
+</html>
+
+<!-- output:body tag will be shown -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div id='hello'> Hello Everyone </div>
+        <div class='myClass'> Hello Guys </div>
+        <div class ='myClass'> Hello All </div>
+
+        <script>
+            let bodyTag = document.querySelectorAll('body').children
+            console.log(bodyTag)
+  
+        </script>
+    </body>
+</html>
+<!-- output: all the tags under body tag will be shown in the console- if we use 'children' -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div id='hello'> Hello Everyone </div>
+        <div class='myClass'> Hello Guys </div>
+        <div class ='myClass'> Hello All </div>
+
+        <script>
+            let bodyTag = document.querySelectorAll('body').firstElementChild
+            console.log(bodyTag)
+  
+        </script>
+    </body>
+</html>
+
+<!-- output: first element tag of the body tag will be shown which is hello -->
+
+    
+
+
