@@ -1,0 +1,30 @@
+<!-- Location Api -->
+
+<!-- open any website > go to console > enter 'location' or window.location  you will see many properties-->
+<!-- location.href : returns the url of the current page -->
+<!-- location.hostname: returns the domain name -->
+<!-- location.pathname: returns the pathname of the current page -->
+<!-- location.protocol: returns http or https depends on the page -->
+<!-- location.assign(https://www.google.com) : redirects to google.com -->
+
+
+
+<!-- Navigation API -->
+
+<!-- navigator.language : returns the language of the page-->
+<!-- navigator.online : returns true if you are connected to internet-->
+
+
+<!-- Screen API -->
+<!-- screen.orientation: gives the details of the browser screen -->
+<!-- screen.height: gives the height of the screen -->
+
+
+<!-- History API -->
+<!-- history: returns the length - how many paths you have visited -->
+
+<!-- history.forward(): forward button - opens the new page - moves to the closed page -->
+<!-- history.back() : takes back to the page-->
+<!-- history.go(0): refreshes the page -->
+<!-- history.go(1): takes to the forward screen -->
+<!-- history.go(-1): takes to the backward screen -->
