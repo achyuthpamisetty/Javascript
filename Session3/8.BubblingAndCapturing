@@ -1,0 +1,84 @@
+<!-- Event Flows -->
+<!-- Event Bubbling -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body id="body">
+        <div id ='div_wrapper'>
+            <button id="btn">Click Me</button>
+        </div>
+        
+
+        <script>
+            //btn code
+            let btn = document.querySelector('#btn');
+            btn.addEventListener('click',function(){
+                alert('it was clicked');
+            });
+
+            //div code
+            let div_wrapper = document.querySelector('#div_wrapper');
+            div_wrapper.addEventListener('click',function(){
+                alert('div wrapper clicked');
+            });
+
+            //body code
+            let body = document.querySelector('#body');
+            body.addEventListener('click',function(){
+                alert('body clicked');
+            });
+
+
+        </script>
+    </body>
+</html>
+
+<!-- output: if you click on clik me button first pop shows 'it was clicked' and second div_wrapper clicked and third body clicked -->
+<!-- bubbling happens from down to top -->
+
+
+<!-- Event Capturing -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body id="body">
+        <div id ='div_wrapper'>
+            <button id="btn">Click Me</button>
+        </div>
+        
+
+        <script>
+            //element.addEventListener(event,function,useCapture)
+            //btn code
+            let btn = document.querySelector('#btn');
+            btn.addEventListener('click',function(){
+                alert('it was clicked');
+            });
+
+            //div code
+            let div_wrapper = document.querySelector('#div_wrapper');
+            div_wrapper.addEventListener('click',function(){
+                alert('div wrapper clicked');
+            });
+
+            //body code
+            let body = document.querySelector('#body');
+            body.addEventListener('click',function(){
+                alert('body clicked');
+            },true);
+            //added true to the above code ---> useCapture
+
+
+        </script>
+    </body>
+</html>
+
+<!-- output: if you click on click me first body clicked shows up as are using useCapture as true and it was clicked and then div_wrapper clicked -->
