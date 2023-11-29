@@ -1,0 +1,37 @@
+<!-- Debugging and Error Handling -->
+
+<!-- Syntax Errors -->
+<!DOCTYPE html>
+<html>
+    <title> Javascript Session 4</title>
+    <body>
+        <h1> Debugging and Error Handling</h1>
+    </body>
+
+    <script>
+        var x = 2
+        var y = 3
+        var z = (x+y)
+        console.log(z)
+        //in console you will see the output: 5
+        //If you miss anything like ')' in the code then it will show syntax error
+    </script>
+</html>
+
+<!-- Runtime Errors -->
+
+<script>
+    console.log('start')
+    window.callsuperman() //this line causes runtime error
+    //syntax correct, object - window which is having a method but runtime when you try to call the method, throws an error
+    console.log('end')
+</script>
+
+
+<!-- Logical Errors -->
+<script>
+    console.log('start')
+    let value = "{achyuth}"     //Invalid JSON //---> correct is '{'name':'Achyuth'}' then it converts string into object
+    let obj = JSON.parse(value)   //because of invalid JSON rror oocurs
+    console.log('end',obj)
+</script>
