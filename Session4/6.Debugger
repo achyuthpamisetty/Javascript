@@ -1,0 +1,58 @@
+<!-- Debugging and Error Handling -->
+<!-- Debugger -->
+<!DOCTYPE html>
+<html>
+    <title> Javascript Session 4</title>
+    <body>
+        <h1> Debugging and Error Handling</h1>
+        <button id="'btn">Click Me</button>
+
+    </body>
+
+    <script>
+        let elem = document.querySelector('#btn')
+        elem.addEventListener('click',btnHandler)
+        function btnHandler(event){
+            console.log('start')
+            console.log(event)
+            debugger
+            console.log('end')
+        }
+
+    //1. first we fetch element form DOM suing queryselector
+    //2. we are attaching with eventListener with click & btnhandler
+    //3. btnHandler witll take callback as function
+    //4. browser will stop execution at debugger & you can debug the error
+    //5. go to sources in the console & hover the code after placing the debugger in the code
+    </script>
+</html>
+
+<!-- Debugging in Browser with Breakpoints -->
+<!-- 1. open the browser > go to salesforce.com > inspect > Elements > Mostly commonly used, it shows the DOM where nodes /elements used to built the application-->
+<!-- 2.Network Tabs: used to see what all API's are hitting & also headers bar : check the network settings-->
+<!-- 3. console - used for debugginh -->
+<!-- 4. console has console side bar on the left -->
+<!-- 5. go to sources > open source bar on the left (console side bar) & shows all the files that website is using-->
+<!-- if you open any of the js file > you won't understand > just hit {} on the below the code will be rearanged & readable-->
+<!-- 6.Memory : check heap snapshot: how mach memory is taking to load the page -->
+<!-- 7.Performamnce: you can also record the performance -->
+<!-- 8.Application: Local Storage /Session Storage -->
+<!-- 8.Security: to check the website totally secured with valid certificate or not -->
+
+
+
+<!-- If there are some elements on the web page & how can we remove them? -->
+<!-- go to the element > use selector > right click on the code > delete element -->
+
+<!-- if there are 100 elements you need to remove you can't go each & every element & remove how can this be achieved? -->
+<!-- we use below line of code -->
+document.queryselectorAll('.classname').forEach(item => item.remove())
+
+
+<!-- if you want to fetch the image from website -->
+<!-- use selector > hover to the image > below code will be seen > just keep the cursor there only > go to console enter $0 you will get the code
+and if you need image link or source of that image use $0 src-->
+
+
+
+
