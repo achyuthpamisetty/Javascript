@@ -1,0 +1,97 @@
+<!-- Debugging and Error Handling -->
+<!-- catch Error -->
+
+<!DOCTYPE html>
+<html>
+    <title> Javascript Session 4</title>
+    <body>
+        <h1> Debugging and Error Handling</h1>
+    </body>
+
+    <script>
+        try{
+            hello                    
+        }catch(err){
+            console.log(err.name)   //name of the error/refernce error
+            console.log(err.message)  //error details
+            console.log(err.stack)  //name,message both together
+        }
+    </script>
+</html>
+<!-- output://if enter only hello - reference error will show up
+message: hello is not defined
+stack:reference error, message errror & gives index line number for debugging purpose -->
+
+
+<!-- Example 2 -->
+<script>
+    try{
+        hello                    
+    }catch(err){
+        console.log(err)  //gives name:message
+    }
+</script>
+
+<!-- output: Reference Error: hello is not defined -->
+
+
+<!-- Throw Operator -->
+
+<script>
+    let name ='Achyuth'
+    try{
+        if(name === 'Achyuth'){
+            throw 'something wring with the name'
+        }else{
+            console.log('All good')
+        }                    
+    }catch(err){
+        console.log(err)  //this doesn't work here because in throw we are directly printing with string.
+    }
+</script>
+
+<!-- output: something wring with the name -->
+
+<!-- In order to achieve/err should print the message changes should be made as below -->
+<script>
+    let name ='Achyuth'
+    try{
+        if(name === 'Achyuth'){
+            throw new Error('something wring with the name')
+        }else{
+            console.log('All good')
+        }                    
+    }catch(err){
+    
+        console.log(err)  //prints only the name --> Error
+        console.log(err.message)   //prints only the message  -->something wring with the name
+    }
+</script>
+
+<!-- output:
+Error: something wring with the name at index line number-->
+
+
+
+<!-- Onerror Method : Old trick to catch an error-->
+
+<!DOCTYPE html>
+<html>
+    <title> Javascript Session 4</title>
+    <body>
+        <h1> Debugging and Error Handling</h1>
+        <img src = 'image.gif' onerror='myFunction()'>
+
+    </body>
+
+    <script>
+     //create an img source in the body tag
+     function myFunction(){
+        alert('The image could not be loaded')
+     }
+    </script>
+</html>
+
+
+<!-- output:
+image is not there & immediately we call the onError & alert will pop-up on the browser -->
