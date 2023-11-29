@@ -1,0 +1,60 @@
+<!-- Browser Object Model -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body id="body">
+        <button onclick='showAlert()'>Click Me</button>
+        <button onclick='cancelAlert()'>Cancel</button>
+
+        <script>
+            //display an alert dialog
+            window.alert('hello')
+            //hello pop-up appears on the browser
+            //without window it will work
+
+            //confirm box
+            let result = confirm('Are you sure want to delete?')
+            let message = result ? 'you clicked the Ok button':'you clicked the cancel button';
+            console.log(message
+            
+            //are you sure want  to delete pop-up appears on the screen) & if you click ok
+            //you clicked on the ok button appears in the console
+
+
+            //Prompt
+            let lang = prompt('what is your name?');
+            let feedback = lang.toLowerCase() === 'Achyuth'?'Yes':'No';
+            console.log(feedback)
+
+            //output: what is your name pop-up shows to enter the name
+            //if you enter the name 'Achyuth' , 'Yes will be shown in the console'
+
+
+            //setTimeOut
+            //syntax: setTimeout(cb,time,arg)
+            //callback: when a function pass an argument to another function
+            //3000 - 3 seconds
+            //create a button
+            //if you want to cancel the timeOut we need global varaible timeoutid
+            //create another button called cancel
+
+
+            var timeOutId;
+            function showAlert(){
+                timeOutId = setTimeout(alert(),3000,'setTimeOut Demo')
+            }
+            function cancelAlert(){
+                clearTimeout(timeOutId)
+                console.log('cancelled successfully')
+            }
+            //if you click on click me button after 3 secods it shows an alert with setTimeOut Demo
+            //if you click on click me button after 3 secods it shows an alert with setTimeOut Demo & click cancel & then click on click me the pop-u[ won't apper
+            //cancelled successfully shown in the console
+        </script>
+    </body>
+</html>
+
