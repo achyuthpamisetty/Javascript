@@ -1,0 +1,34 @@
+<!-- Manipulating Attributes -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div id='hello' variant = 'brand'> Hello Everyone </div>
+        <div class='myClass'> Hello Guys </div>
+        <div class ='myClass'> Hello All </div>
+
+        <script>
+            //getAttribute
+            //If you want to fetch Attribute from an element there is property called getAttribute
+            let elem = document.querySelector('#hello').getAttribute('variant')
+            console.log(elem)
+  
+        </script>
+    </body>
+</html>
+
+<!-- output: brand will be shown in the console -->
+<!-- if the attribute is not available it returns  null -->
+
+<script>
+    //setAttribute
+    //setAttribute needs two parameters, first is Attribute Name & second is Value
+    let elem = document.querySelector('#hello').getAttribute('variant','Success')
+    console.log(elem)
+
+</script>
+
+<!-- output: go to elements in the console and changes will reflect variant contains success instead of brand -->
