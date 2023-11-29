@@ -1,0 +1,146 @@
+//DOM
+//whatever you type in html file like below
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div> Hello Everyone </div>
+        <script>
+
+        </script>
+    </body>
+</html>
+
+//Hello Everyone will appear on the browser & if you open console in the browser & type document
+//output: #document (which is in tree structure & html tag is the root node)
+//Each tag considered as a node
+//If you go the elements you will see the HTML code which is called DOM
+
+
+//DOM Manipulation
+//Selecting Elements
+//Fetch an element using ID
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div id='hello'> Hello Everyone </div>
+        <script>
+        let elemt = document.getElementById('hello')
+        console.log(elemt)
+        </script>
+    </body>
+</html>
+//output: hello will shown in the console
+
+//Fetch element using class
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div class='hello'> Hello Everyone </div>
+        <script>
+        let elemtClass = document.getElementByClassName('hello')
+        console.log(elemtClass)
+        </script>
+    </body>
+</html>
+//output: hello will shown in the console in the form of an Array
+
+//Fetch element using Tag Name
+document.getElementsByTagName('div')
+//output: hello will shown in the console in the form of an Array
+
+//Its very difficult to remember when to use classname,id or tagname. To solve this JS introduced Queryselector
+
+//Fetch element using querySelector
+//In JS we call ID with '#'
+//In JS we call class with'.'(Dot Notation)
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div id='hello'> Hello Everyone </div>
+        <div class='myClass'> Hello Guys </div>
+        <div class ='myClass'> Hello All </div>
+
+        <script>
+            let byId = document.querySelector('#hello')
+            console.log(byId)
+  
+        </script>
+    </body>
+</html>
+
+//output: hello will shown in the console
+//QuerySelector allows you find the first element based on the selector
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div id='hello'> Hello Everyone </div>
+        <div class='myClass'> Hello Guys </div>
+        <div class ='myClass'> Hello All </div>
+
+        <script>
+            let byClass = document.querySelector('.myClass')
+            console.log(byClass.innerHTML)
+  
+        </script>
+    </body>
+</html>
+
+//output: myClass will shown in the console
+//but above we have two myClass in order to check we use innerHTML
+
+let byTag = document.querySelector('div')
+            console.log(byTag.innerHTML)
+//output: Hello Everyone will be shown
+//QuerySelector will be very helpful when you want to find the first element
+
+
+//Fetch element using querySelectorAll
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <div id='hello'> Hello Everyone </div>
+        <div class='myClass'> Hello Guys </div>
+        <div class ='myClass'> Hello All </div>
+
+        <script>
+            let byTag = document.querySelectorAll('div')
+            console.log(byTag)
+  
+        </script>
+    </body>
+</html>
+
+//output: it returns all the div tags
+let byClass = document.querySelectorAll('myClass')
+            console.log(byClass)
+
+//output: it returns all the class names
