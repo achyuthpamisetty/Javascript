@@ -1,0 +1,40 @@
+<!-- Debugging and Error Handling -->
+<!-- Console Methods -->
+
+
+
+<!DOCTYPE html>
+<html>
+    <title> Javascript Session 4</title>
+    <body>
+        <h1> Debugging and Error Handling</h1>
+        
+
+    </body>
+
+    <script>
+        //log
+     let x = 'Hello Everyone'
+     console.log(x)
+
+     //output: Hello Everyone
+
+
+     //warn
+     console.warn('img elemnets must have an alt prop,either with meaningful text,or an empty string for decorative images')
+
+     //if you didn't see the above line in the console
+     //go to custom level > enable warnings & you can see the above text/warning
+
+
+     //error
+     console.error('Server is not running!!')
+     //output: server is not working comes with red color with danger warning  in the console with index line number
+
+
+
+     //info
+     console.info('Newer version of LWC is available')
+     //output:Newer version of LWC is available    //if you want to just give information just go with info
+    </script>
+</html>
