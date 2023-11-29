@@ -1,0 +1,45 @@
+<!-- Page Load Events -->
+
+<!-- with event listener you won't add 'on' property -->
+<!-- the 'on' property only with event handler attributes and event handler property -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <button id="btn">click me</button>
+        <button id="remove">Remove</button>
+        <a href="https://www.google.com/">Google</a>
+
+        <script>
+            //DOMContentLoaded
+            //Page is everytime represents a window
+            //if I want to play around an event first i need to attach an event to the window object
+
+            window.addEventListener('DOMContentLoaded',()=>{
+                console.log('The DOM is fully Loaded');
+            })
+
+            //Load - checks the image is ready or not
+            window.addEventListener('load',(event)=>{
+                console.log('The page is fully Loaded');
+            });
+
+            //beforeunload
+            window.addEventListener('beforeunload',(event)=>{
+                event.preventDefault()
+                event.returnValue='';
+            })
+
+            //if you click on goole link you will see the pop-up like'changes you made not saved leave site' beforeunload does this
+
+
+        </script>
+    </body>
+</html>
+
+<!-- output: The DOM is fully Loaded shown up in the console -->
+<!-- The page is fully Loaded shown up in the console -->
