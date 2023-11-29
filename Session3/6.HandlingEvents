@@ -1,0 +1,98 @@
+<!-- JavaScript Events -->
+<!-- Handling Events in JS -->
+<!-- HTML Event Handler Attribute -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <button onclick="showAlert()"> Click Me </button>
+        <!-- button is created on the browser -->
+        <!-- If you want action to that button we use 'on' -->
+        <!-- showAlert is the handler -->
+       
+        <script>
+            //In JS
+            //create a function to call the event handler
+            function showAlert(){
+                alert('Hey Guys!')
+            }
+        </script>
+    </body>
+</html>
+
+<!-- output: when you click on clickme button 'Hey Guys pop-up will be shown' -->
+
+<!-- Event Handler Property in the JS 2nd Approach -->
+<!-- Now we are adding an event to the property -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <button id="btn"> Click Me </button>
+
+       
+        <script>
+        //first fetch the element
+        let btn = document.querySelector('#btn')
+        btn.onclick = function(){
+            alert('clicked')
+        }
+
+        //In the above function becomes the method of an element
+        </script>
+    </body>
+</html>
+
+<!-- output: when you click on clickme button 'Clicked pop-up will be shown' -->
+
+<!-- Event Listener :Most Recommended way while writing JS code especially for libraries-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body>
+        <button id="btn"> Click Me </button>
+        <button d ='remove'>Remove</button>
+
+       
+        <script>
+        //1.addEventListener() Method: It sets the arguments an event name, an event handler function and boolean value & taht instruct the method
+        //to call the event handler during the bubbling phase or during the capture phase
+        //syntax: element.addEventListener(event,function,useCapture);
+    //element: any elemnent on which you want to listener or event listener you called a method called addeventListener
+    //addEventListener takes three arguments
+    //1.event - what event do want to handle it can be click, key up, key down, mouse over,blur, focus etc;
+    //2.function - on click what should happer you write the code in fucntion
+
+    let btn = document.querySelector('#btn')
+        let showAlert = function(){         //showAlert is a fucntion & that function will alert 'clicked'
+            alert('clicked');
+        }
+        btn.addEventListener('click',showAlert)   //added addEventListener to the button & event name is 'click'
+        //whenever click happend just call the showAlert method
+
+        //2.removeEventListener Method()
+        //to remove the eventListener create an another button 'remove'
+        let removebtn = document.querySelector('#remove')
+        removebtn.addEventListener('click', function(){
+            btn.removeEventListener('click',showAlert)
+        }) 
+        
+        
+        //listen to the click on remove button & add inline function
+
+        </script>
+    </body>
+</html>
+
+<!-- output: when you click on click me button 'clicked' pop-up will be shown -->
+<!-- output for removeAddEventListener: first if you click me the pop -up shows after if you click remove and again if you click on click me the pop-up won't shown  up -->
+
