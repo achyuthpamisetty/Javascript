@@ -1,0 +1,53 @@
+<!-- Browser Object Model -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body id="body">
+        <button onclick='start()'>Start</button>
+        <button onclick="stop()">Stop</button>
+        
+        <div id="text">Hello EveryOne</div>
+        
+
+        <script>
+            //Local Storage - used to store some information in thr browser & remains there until you explicitly delete that data
+           //1. saving data to localstorage
+           //setItem is a method
+           //store the data as a code
+           //store the value as 12345 
+           //localstorage stores the data in string format
+            localStorage.setItem('code','12345')
+
+            //If you want to see where the data is stored go to applications in the console > Local Storage & you will see the key & value
+
+
+            //2. Reading the data from local storage
+            var code = localStorage.getItem('code')
+            console.log(code)
+
+            //output: 12345
+
+            //3. Removing the data from localstorage
+            localStorage.removeItem('code')
+
+
+            //Session Storage: deletes the data as soon as you close the tab or browser
+            //1. saving data to sessionStorage
+            sessionStorage.setItem('code','12345')
+
+            //2. Reading the data from Session storage
+            var code = sessionStorage.getItem('code')
+            console.log(code)
+
+            //3. Removing the data from sessionStorage
+            sessionStorage.removeItem('code')
+
+
+
+        </script>
+    </body>
+</html>
