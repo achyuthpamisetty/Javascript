@@ -1,0 +1,47 @@
+<!-- Event Objects -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Browser and Events </title>
+    </head>
+
+    <body id="body">
+        <button id="btn">click me</button>
+        <a href = 'https://wwww.google.com/' id = 'link' >Google</a>
+
+        <!-- if you click on google in the browser it will take to the google.com -->
+        <!-- in order to prevent that behaviour we use prevent default property -->
+        </div>
+        <script>
+            //Prevent Default
+
+            //Not that preventDefault() method does not stop the event from bubbling up the DOM but stop the default operation 
+            let link = document.querySelector('#link')
+            link.addEventListener('click',function(event){
+                console.log('clicked');
+                event.preventDefault();
+
+                //if you click on google > it just prints the clicked in the console but won't redirect to google.com
+            })
+
+
+            //Stop Propogation
+            let btn = document.querySelector('#btn')
+            let body = document.querySelector('#body')
+
+            body.addEventListener('click',function(event){
+                console.log('body clicked');
+            })
+            btn.addEventListener('click',function(event){
+                console.log('btn clicked');
+                event.stopPropagation()
+            })
+
+            //if you click on click me button first btn clicked will be shown then body clicked will be shown in the console
+            //In order to stop the above behaviour use stop propogation
+            //if you use event.stoppropogation you will see only btn clicked after you click on th click me button
+        </script>
+    </body>
+</html>
+
