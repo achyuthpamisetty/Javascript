@@ -1,0 +1,102 @@
+<!-- Debugging and Error Handling -->
+
+
+<!-- String Substitution -->
+
+
+
+<!DOCTYPE html>
+<html>
+    <title> Javascript Session 4</title>
+    <body>
+        <h1> Debugging and Error Handling</h1>
+        
+
+    </body>
+
+    <script>
+        //%s - string, %d - number , %o - object
+        var x = [{name:'Achyuth',language:'Javascript'},
+        {name:;'Pamisetty',language:'Python'}]
+     console.log('Hello, %s. You have called me %d times nd object is %o','Achyuth',10,x)
+
+     //output:('Hello, Achyuth. You have called me 10 times nd object is {name:'Achyuth'}(prints all the values in the x)
+    </script>
+</html>
+
+
+<!-- Console.table -->
+
+<!DOCTYPE html>
+<html>
+    <title> Javascript Session 4</title>
+    <body>
+        <h1> Debugging and Error Handling</h1>
+        
+
+    </body>
+
+    <script>
+        //%s - string, %d - number , %o - object
+        var x = [{name:'Achyuth',language:'Javascript'},
+        {name:;'Pamisetty',language:'Python'}]
+     console.table(x)
+
+     //output: you can see the data in tabular format
+
+     //if you want to print only name property
+     console.log(x,'name')
+     //output: only name will be shown  with index
+    </script>
+</html>
+
+
+<!-- Console.time & Console.timeEnd : this method helpful from performance testing point of view-->
+
+<!-- check the code in slides for time & timeEnd -->
+
+
+<!-- console.group & console.groupEnd: grouping of the data with name -->
+<!DOCTYPE html>
+<html>
+    <title> Javascript Session 4</title>
+    <body>
+        <h1> Debugging and Error Handling</h1>
+        
+
+    </body>
+
+    <script>
+        var x = [
+            {name:'Achyuth',language:'Javascript',age:27},
+            {name:'Kumar',language:'Python',age:28},
+            {name:'Pamisetty',language:'C++',age:26},
+            {name:'Robim',language:'C',age:24},
+            {name:'Jack',language:'Python',age:23},
+            {name:'Robert',language:'Java',age:25},
+            {name:'Mike',language:'Javascript',age:25},
+            {name:'Smith',language:'Python',age:27},
+            ]
+
+        x.forEach(item =>{
+            console.group(item.name)
+            console.log(`${item.name} is ${item.language} developer`)
+            console.log(`${item.name} is ${item.age} years old`)
+            console.log(`${item.name} is the developer name`)
+            console.groupEnd(item.name)
+        })
+
+        //output:
+        //Achyuth:
+        //Achyuth is the Javascript Developer
+        //Achyuth is 27 years old
+        //Achyuth is the developer name
+
+        //Kumar
+        //Kumar is the Python Developer
+        //Kumar is 28 years old
+        //Kumar is the developer name
+
+        //and so on.....
+    </script>
+</html>
