@@ -1,0 +1,113 @@
+<!-- Server Side Javascript -->
+
+<!-- node -v   or node -version  or node --version: to check the version of node.js -->
+<!-- npm -v or npm --version: to check the evrsion of npm package manager -->
+
+
+<!-- npmjs.com: worlds largest software library or registry -->
+<!-- npm - software package manager or installer . bu ysing CLI you can download the pacakages from the cloud -->
+<!-- npm - full form: node package manager -->
+
+
+
+<!-- package.json: Suppose In company there are two people are working,one people some project on my machine & other say the same project is not working on my machine-->
+<!-- Reason for not woring is mismatch of the package or version or library  -->
+<!-- package.json solve the above issue & takes the version number exactly & justb pass this meta file to the other person & just install it -->
+
+
+<!-- Manual craetion of package.josn -->
+<!-- npm init (in terminal)  & enter all the details-->
+<!-- Automatic creation -->
+<!-- npm init -y (in terminal) -->
+
+
+<!-- how to install package -->
+<!-- npm install [package_name] -g -->
+<!-- -g: globally -->
+<!-- i : install -->
+
+<!-- installing the package -->
+<!-- npm install react --save -->
+
+<!-- you will see under dependencies in package.json file : react with version -->
+
+
+<!-- Semantic Versioning -->
+<!-- Major.Minor.Patch -->
+<!-- First New Product: 1.0.0 :-Major -->
+<!-- Backward Compitable Bug Fixes: 1.0.1 :- Patch -->
+<!-- Backward Compitable New Features: 1.1.0 :- Minor -->
+<!-- Changes thet break backward compatibility: 2.0.0 :-Major -->
+
+
+
+<!-- Semver Shorthands -->
+<!-- caret version(^): updates only for minor or patch version -->
+<!-- titl version(~): updates only the patch version -->
+<!-- 1.2.x : downloads the latest patch version like 1.2.1,.1.2.2 but not 1.3.0 -->
+
+
+
+<!-- Nodejs core modules -->
+<!-- Node as a web server using http -->
+
+<!-- import the http core module, to do that we call require -->
+var http = require('http')
+<!-- create a server -->
+const server = http.createserver(function(req,res){
+    res.write('hello salesforce developers')
+    res.end()
+})
+server.listen(8080,function(){
+    console.log('listening on port 8080');
+})
+
+
+<!-- howe to run the above code -->
+<!-- in terminal: node filename -->
+<!-- output: listening on port 8080 -->
+
+<!-- go to browser: localhost8080 -->
+<!-- you will see the ouput:hello salesforce developers  -->
+
+<!-- Method 2: to run the above code -->
+<!-- go to package.json: under scripts: instead of test replace with start & enter the command "node filename" -->
+<!-- go to terminal : npm start -->
+<!--  output: listening on port 8080 -->
+<!-- go to browser: localhost8080 -->
+<!-- you will see the ouput:hello salesforce developers  -->
+
+
+
+<!-- Node Events -->
+var events = require('events');
+
+var eventEmitter = new events.EventEmitter();
+
+<!-- create an event handler -->
+var myEventHandler = function(){
+    console.log('Hello Guys!')
+}
+
+<!-- Assign the event Handler to an event -->
+
+eventEmitter.on('greet',myEventHandler)
+<!-- on: will listen to an event -->
+<!-- when an event occur called 'greet' is an event name -->
+<!-- on will always listen to the event & calls the eventHandler & immediatley prints -->
+
+<!-- to fire an event we use emit-->
+eventEmitter.emit('greet')
+<!-- emit is used to emit the event & on is used to listen the event -->
+<!-- first emit the event & then on listen the event -->
+
+<!-- execute the above code -->
+<!-- go to terminal : node filename -->
+<!-- Hello Guys! -->
+
+
+
+<!-- Node Frameworks -->
+<!-- Express.js -->
+<!-- Koa.js -->
+<!-- Meteor.js -->
