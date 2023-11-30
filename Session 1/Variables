@@ -27,7 +27,7 @@ here x becomes boolean
 var x = 10
 now x becomes Number
 
-//Variables cannot begin with Numbers, Keywords(true/false)
+//Variables can begin with Numbers, Keywords(true/false)
 
 //We can start the variable with loadish
 
