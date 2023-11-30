@@ -1,0 +1,48 @@
+<!-- Call Stack -->
+
+function add(a,b){
+    return a+b;
+}
+function average(a,b){
+    return add(a,b)/2;
+}
+let x = average(10,20);
+
+<!-- How Call Stack works behind the scenes? -->
+<!-- 1. When the JS runs, JS place the global context & can be denoted by main() -->
+<!-- 2.When exection started by default creates the global context & denoted by the main() -->
+<!-- 3. Global context enters into the creation phase -->
+<!-- 4. First it push the average funciton to the call stack & it takes controls to the average function -->
+<!-- 5. Average function calls the add function -->
+<!-- 6. At this point JS creates another Execution context because Each function has its own Exceution Context -->
+<!-- 7. If the exceution of add function is completed it moved out of the stack & average function remains there -->
+<!-- 7. If the execution of the average function completed, it also moved out of the stack & global exceution remians there -->
+<!-- 8. Once the global execution main() completed, it also moved out of the stack -->
+
+
+
+<!-- Example 2 -->
+const second = () => {
+    console.log('2');
+}
+
+cost first = () =>{
+    console.log('1');
+    second();
+    console.log('3')
+}
+
+first();
+
+
+<!-- 1. First Global context will form first -->
+<!-- 2. first() fucntion gets called up & first() fucntion goes to the call stack -->
+<!-- 3. first() function execution started & it calls the log('1') function -->
+<!-- 4. if the log function exceution done , it will moved out of the stack -->
+<!-- 5. It comes to the second function & second() function added to the call stack -->
+<!-- 6. second() function has its own execution  context & it goes & put the log('2') to the call stack -->
+<!-- 7. If the execution of log('2') completed it moved out of the call stack -->
+<!-- 8. It come back to the second() function & if the second() fucntion also completed, the second() function moved out of the stack -->
+<!-- 9. then it moves log('3') to the call stack & if the execution completed log('3') also moved out of the stack-->
+<!-- 10. the control come back to the first() fucntion & if the first() function execution completed, it also removed out of the stack-->
+<!-- 11. And remains with the global context & once the sript runs completely global() context also removed out of the stack -->
