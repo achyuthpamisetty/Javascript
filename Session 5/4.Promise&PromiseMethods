@@ -1,0 +1,194 @@
+<!-- Callback Hell -->
+
+
+<!-- Promise -->
+<!-- To create a promise we need 'new' Promise constructor that takes the executor & executor is nothing but function & function called itself automatically -->
+<!-- function takes two arguments resolve & reject -->
+<!-- Promise Creation -->
+
+
+var completed = true;
+var task = new Promise(function(resolve,reject){
+
+    setTimeour(()=>{
+        if(completed){
+            resolve('task completed')
+        } else{
+            reject('task rejected')
+        }
+    },5000)
+
+})
+
+task
+<!-- output: promise is pending -->
+after 5 seconds print again
+task
+<!-- output: resolved: task completed -->
+<!-- resolved state is also called fulfilled state -->
+
+
+
+var completed = false;
+var task = new Promise(function(resolve,reject){
+
+    setTimeour(()=>{
+        if(completed){
+            resolve('task completed')
+        } else{
+            reject('task rejected')
+        }
+    },5000)
+
+})
+
+task
+<!-- output: promise is pending -->
+after 5 seconds print again
+task
+<!-- output: rejected: task rejected -->
+
+
+
+<!-- Settled State: It is a state in which in which your promise execution is completed.It doesn't matter its completed with fulfilled state or rejected state -->
+
+
+
+<!-- Consuming a Promise -->
+<!-- syntax: promiseObject.then(onFulfilled,onRejected); -->
+<!-- if the data comes from fulfill state goes to onFulfilled and data comes form reject state goes to onRejected -->
+
+<!-- then property -->
+function makeTaskPromise(completed){
+    return new Promise(function(resolve,reject){
+
+        setTimeour(()=>{
+            if(completed){
+                resolve('task completed')
+            } else{
+                reject('task rejected')
+            }
+        },3000);
+    });
+}
+
+var task = makeTaskPromise(true);
+task.then(success=>console.log(success),failure=>console.log(failure))
+
+<!-- output: promise pending -->
+<!-- after 3 seconds it printed: task completed -->
+
+
+<!-- task.then(success=>console.log(success),failure=>console.log(failure)) -->
+<!-- the above code can also be written as -->
+<!--task.then(function(success){
+    console.log(success)
+    },function(error){
+    console.log(error)
+}) -->
+
+
+
+<!-- catch property -->
+function makeTaskPromise(completed){
+    return new Promise(function(resolve,reject){
+
+        setTimeour(()=>{
+            if(completed){
+                resolve('task completed')
+            } else{
+                reject('task rejected')
+            }
+        },3000);
+    });
+}
+
+var task = makeTaskPromise(false);
+task.then(success=>console.log(success))
+.catch(error=>console.error('error',error))
+
+<!-- output: promise pending -->
+<!-- After 3 seconds: error task rejected -->
+
+
+function makeTaskPromise(completed){
+    return new Promise(function(resolve,reject){
+
+        setTimeour(()=>{
+            if(completed){
+                resolve('task completed')
+            } else{
+                reject('task rejected')
+            }
+        },3000);
+    });
+}
+
+var task = makeTaskPromise(false);
+task.then(success=>console.log(success),failure=>console.error('error from then',failure))
+.catch(error=>console.error('error',error))
+
+<!-- output: promise pending -->
+<!-- error from then task rejected -->
+<!-- in the above code catch doesn't work as we already printing the error using then function, if we don't use failure in then function, then catch will find the error -->
+
+
+
+<!-- finally property -->
+
+task.then(
+    success => console.log(success),
+    failure => console.log(failure)
+).catch(error=> console.error(error)
+).finally(()=>{
+    console.log('promise completed')
+})
+
+<!-- output: task rejected -->
+<!-- promise completed -->
+
+<!-- always catch to find the error : best recommended approach -->
+
+
+<!-- Promise Chaining -->
+let p = new Promise ((resolve,reject) => {
+    setTimeout(()=>{
+        resolve(10);
+    },3000);
+});
+p.then((result)=>{
+    console.log(result);
+    return result*2;
+}).then((result1)=>{
+    console.log(result1);
+    return result1*3;
+});
+
+<!-- output: 10, 20 -->
+<!-- 60 is not catched so it didn't print -->
+<!-- 1. we are giving delay to make it asynchronous -->
+<!-- 2. we are storing the promise in a variable 'p' -->
+<!-- 3.we are using then method to catch the result that is '10' -->
+<!-- 4. print & execute the result & return it again -->
+<!-- 5. next then method will hold the result & print the result & execute & return the result & last result will not be catched -->
+<!-- 6. then always works when  we get the promise back -->
+<!-- it means if we are returning something from then, it means then always returns a promise -->
+<!-- another then returns only when  the above then returns the promise -->
+
+
+<!-- Benefit of catch -->
+let p = new Promise ((resolve,reject) => {
+    setTimeout(()=>{
+        resolve(10);
+    },3000);
+});
+p.then((result)=>{
+    console.log(result);
+    return result*2;
+}).then((result)=>{
+    console.log(result);
+    throw new Error('something wrong')
+}).catch(error=>console.error(error))
+
+<!-- output: 10, 20, something wrong -->
+<!-- error is catched by the catch  method -->
