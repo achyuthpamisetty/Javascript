@@ -1,0 +1,65 @@
+<!-- Synchronous Javascript -->
+
+let x = 10;
+function tenTimes(a){
+    return a * 10;
+}
+let y = tenTimes(x);
+console.log(y);
+
+<!-- output: 100 -->
+<!-- Execution happened from top to bottom -->
+
+<!-- Example 1 -->
+<!-- The function that takes long time to execute is known as blocking function -->
+<!-- Below is the example -->
+
+function task(message){
+    let n = 1000000000;
+    while(n > 0){
+        n--;
+    }
+    console.log(mesaage);
+}
+
+console.log('Start Script......');
+task('Download a file....');
+console.log('Done!');
+
+<!-- output: Start Script -->
+<!-- you won't see the Done output until unless the above loop is complete - known as block function -->
+
+
+
+
+
+<!-- Global Execution Context -->
+<!-- Creation Phase -->
+
+let x = 10;
+function tenTimes(a){
+    return a * 10;
+}
+let y = tenTimes(x);
+console.log(y);
+
+<!-- 1. Javascript creates a global object as we are running the JS in browser it creates global object called window-->
+<!-- 2. It creates 'this' object binding & global 'this' point to the window-->
+<!-- 3. Now Global things are ready go to the code -->
+<!-- 4. Code passing from top to bottom -->
+<!-- 5. create a variable x & initialize with undefined -->
+<!-- 6. then it create the function & assigns the function to the tenTimes variable -->
+<!-- 7. After it sees the variable y & initialize with undefined -->
+
+
+<!-- Execution Phase -->
+
+<!-- 1. During the execution phase JS executes the code line by line -->
+<!-- 2. In this assign the values to the variables and execute the function calls -->
+<!-- 3. Each function has its own further execution context -->
+<!-- 4. As soon as the tenTimes function called it creates another exceution context creation phase -->
+<!-- 5. Then it creates a global object with the argument & also this binding to that object -->
+<!-- 6.Initialize variable 'a' with undefined -->
+<!-- 7. Once the creation phase completed it goes to the execution phase again, it assigns the 10 to the parameter a & returns the result 100 & assign that result to the variable y -->
+
+
