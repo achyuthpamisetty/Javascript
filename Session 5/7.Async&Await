@@ -1,0 +1,64 @@
+<!-- Async/Await Keyword -->
+
+async function abc(){
+    return 'hello'
+}
+abc()
+
+<!-- output -->
+<!-- promise: 'hello' -->
+<!-- if the above function wants to return a promise just append async keyword beside function -->
+
+<!-- catch the promise -->
+async function abc(){
+    return 'hello'
+}
+abc().then(result => console.log(result))
+
+<!-- output -->
+<!-- hello -->
+
+
+
+<!-- Await keyword -->
+
+async function abc(){
+    let promise = new promise((resolve,reject) =>{
+        setTimeout(()=> resolve('Hello'),1000)
+    })
+    let greeting = await promise
+    return greeting
+}
+abc()
+<!-- output -->
+<!-- hello -->
+
+
+async function abc(){
+    let promise = new promise((resolve,reject) =>{
+        setTimeout(()=> resolve('Hello'),1000)
+    })
+    let greeting = await promise
+    return greeting
+}
+abc().then(result=> console.log(result))
+
+<!-- output -->
+<!-- hello: we use then to print outside the promise-->
+
+
+
+async function abc(){
+    let promise = new promise((resolve,reject) =>{
+        setTimeout(()=> resolve('Hello'),1000)
+    })
+    console.log('start')
+    let greeting = await promise
+    console.log('end')
+    
+}
+abc()
+<!-- output -->
+<!-- start -->
+<!-- promise pending -->
+<!-- end -->
