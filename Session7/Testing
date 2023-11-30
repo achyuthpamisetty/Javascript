@@ -1,0 +1,57 @@
+<!-- Testing -->
+<!-- console.assert() -->
+
+function doubleNum(num){
+    return num*num
+}
+let num = 2
+<!-- passing a string -->
+console.assert(doubleNum(num) % 2 === 0, 'Not an even Number')
+
+<!-- output: it will not print anything because the condition satisfies-->
+
+let num = 3
+console.assert(doubleNum(num) % 2 === 0, 'Not an even Number')
+<!-- output:  Assertion failed: Not an even Number-->
+
+
+<!-- 2nd Approach -->
+function doubleNum(num){
+    return num*num
+}
+let num = 2
+<!-- passing an  object {errorMsg:'Not an even number',number:num}-->
+console.assert(doubleNum(num) % 2 === 0, {errorMsg:'Not an even number',number:num})
+<!-- output:  Assertion failed: {erroMsg: Not an even Number,number:3}-->
+
+
+<!-- 3rd Approach -->
+let num = 3
+<!-- even if you don't pass anything thats also fine, it shows generic message -->
+console.assert(doubleNum(num) % 2 === 0)
+<!-- output:Assertion failed: console.assert  -->
+
+
+<!-- you can also substitute the string -->
+function doubleNum(num){
+    return num*num
+}
+let num = 2
+console.assert(doubleNum(num) % 2 === 0, '%s Not an even number',num)
+<!-- output: Assertion failed: 3 not an even number -->
+
+
+
+<!-- how to test async function using assert -->
+async function serviceCall(status){
+    return status ? 'SUCCESS':'ERROR'
+}
+
+serviceCall()
+<!-- ouptut: promise: Error (prints inside the promise) -->
+await serviceCall()
+<!-- output: Error (prints outside the promise) -->
+<!-- nothing has paased into the serviceCall so it prints error -->
+
+console.assert(await serviceCall(true) === 'ERROR','Testing failed')
+<!-- output: Assertion Failed: Testing Failed -->
