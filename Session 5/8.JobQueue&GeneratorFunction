@@ -1,0 +1,75 @@
+<!-- Job Queue -->
+
+<!-- Event Loop with Job Queue -->
+
+console.log('start')
+setTimeout(function(){
+    console.log('timeout');
+},0);
+var promise = new Promise(function(resolve,reject){
+    resolve();
+});
+promise.then(function(resolve){
+    console.log('promise 1');
+}).then(function(resolve){
+    console.log('promise 2');
+});
+console.log('end');
+
+<!-- output -->
+<!-- start -->
+<!-- end -->
+<!-- promise 1 -->
+<!-- promise 2 -->
+<!-- timeout -->
+
+
+<!-- 1. when the code runs it takes 'start' to the console first -->
+<!-- 2. It takes 'end' to the console second-->
+<!-- 3. then timeout comes to the call stack -->
+<!-- 4. timeout goes to the web API -->
+<!-- 5. then promise comes to the call stack & promise also goes to the web API -->
+<!-- 6. webAPI immediately push the promise to the JOb Queue  & promise 2 also comes to the Job Queue-->
+<!-- 7. the timeout will go to callback Queue -->
+<!-- 8.Event loop alwayd keeps an eye on call stack if it is empty it pulls the promise from job queue then callback -->
+
+
+<!-- promise has more priority than setTimeout or callbacks -->
+
+
+<!-- Generator Function -->
+<!-- In JS function is executed based on the run to compilation mode & it cannot pass midway & continue from where it got stopped -->
+
+<!-- we can't pause the below function -->
+function foo(){
+    console.log('I');
+    console.log('cannot');
+    console.log('pause');
+}
+foo()
+
+<!-- output -->
+<!-- I -->
+<!-- cannot -->
+<!-- pause -->
+
+<!-- to solve the above purpose we use generator function -->
+
+<!-- if you put a star(*) next to function it says its a generator function -->
+<!-- generator function has the ability to pause in midway & continue from where it paused -->
+<!-- to pause the statement you need to use 'yield'  keyword-->
+function* generate(){                  
+    console.log('Invoked 1st time');
+    yield 1;
+    console.log('Invoked 2nd time');
+    yield 2;
+}
+
+
+let gen = generate()
+gen.next()
+<!-- output: inovked 1st time -->
+
+gen.next()
+<!-- it starts from where it left -->
+<!-- output: invoked 2nd time -->
