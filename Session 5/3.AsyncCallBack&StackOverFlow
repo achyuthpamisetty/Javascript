@@ -1,0 +1,86 @@
+<!-- Stack Overflow -->
+
+function recursion(){
+    recusrion();
+}
+
+console.log(recursion());
+
+
+<!-- 1.Same function within the function  which never ends -->
+<!-- 2. once the execution meets the maximum stack called stack overflow -->
+
+<!-- Callback -->
+<!-- synchronous callback -->
+<!-- if the code executes from top to bottom sequentially known as synchronous callback -->
+<!-- pass a function to function as an argument called - callback -->
+
+let numbers = [1,2,4,7,4, 5,6];
+onst num = numbers.filter(item=>item>4);
+console.log(num)
+
+<!-- output:[7,5,6] -->
+<!-- filter is a method & item=>item>4 is also a method but passing as an arguments ---> called callback -->
+
+
+
+<!-- Asynchronous callback -->
+function loadData(callback){
+    let xhr = new XMLHttpRequest()                      
+    xhr.open('GET','https://api.github.com/args/nodejs')
+    xhr.onload = function(){
+        callback(xhr.response)
+    }
+    xhr.send()
+}
+
+loadData(function(result){
+    console.log(result)
+})
+console.log('data is present')
+
+<!-- output: first: data is present will print because of aynchronous-->
+<!-- second: data wil be print -->
+
+<!-- 1. created an object  xhr -->
+<!-- 2. To that object xhr ,call the property 'open'  & this open property takes method type 'GET' & url that you want to call-->
+<!-- 3. there is another property onload, once the data is ready attach to the function, with callback (xhr.response) & response is the property of xhr obj -->
+<!-- 4. And send the response back to the callback -->
+<!-- 5. send() --- trigger/call the API -->
+
+
+<!-- generate aynchroocity using setTimeout -->
+
+setTimeout(function(a,b){
+    console.log(a)
+    console.log(b)
+},5000,'salesforce','hello')
+
+<!-- output: salesforce, hello -- prints after 5 seconds -->
+<!-- you will also see some number in the output like 16 or some other number -->
+<!-- setTimmeout returns the timeoutID  which is positive integer identifying the timer created as a result of calling the method-->
+<!-- That number helps when you want to cancel the timeout -->
+
+
+<!-- Event Loop with Callback Queue -->
+console.log('Hi');
+setTimeout(function(cb1){
+    console.log('cb1');
+},5000);
+console.log('Bye');
+
+<!-- output: Hi, Bye and after 5 seconds it prints cb1 -->
+
+<!-- Web Api's nothing but setTimeout Interval, fetch API or AJAX call -->
+
+
+<!-- 1. Ideally it creates the global context -->
+<!-- 2. Now console.log('Hi') moves to the callstack  & runs immediatley & prints Hi on the screen & moves out of the call stack-->
+<!-- 3.  Now sectTimeout(cb1) moves to the callstack with callback function & timer is a property of webAPI-->
+<!-- 4. setTimeout executes & trigger the timer & timer is controlled by the Web API -->
+<!-- 5. setTimeout sends callback to the webAPI with Timer & says whenver the timer is completed push the callback(cb1) to the callback Queue & setTimeout moved out of the call stack -->
+<!-- 6. Now timer is running & moves to next line i.e,console.log('Bye') moves to the callstack & gets executed & moved out of the call stack -->
+<!-- 7. Now the timer is conpleted & push the callback(cb1) function to the callback queue & here comes the power of event loop-->
+<!-- 8. Event Loop looks into the call stack synchronize with the callback queue, if the callstack is empty then pull the callback queue to the callstack -->
+<!-- 9.if the something is there in the callstack event loop doesn't pull the callback queue it pulls only if the callstack is empty -->
+<!-- 10. Now the callback(cb1) function gets executed & moved to the console.log('cb1') & moved out of the call stack & callback(cb1) completed , moved out of the callstack -->
